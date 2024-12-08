@@ -125,7 +125,7 @@ Each API call will return a JSON response with the following structure:
 ### 3. **Run the Flask API**:
    - To start the Flask API, run the following command:
    ```bash
-   python app.py
+   python main.py
    ```
    - The server will start on `http://localhost:5000`.
 
