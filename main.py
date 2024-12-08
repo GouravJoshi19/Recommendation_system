@@ -71,12 +71,11 @@ def Recommend(username, category_id=None, moods=None):
         # Filter the recommended posts where any mood in the 'mood' column matches the provided moods
         recommended_df = recommended_df[recommended_df['moods'].apply(lambda x: any(mood in x for mood in moods))]
 
-    # Optionally, sort by 'rating_percent' if available
-    if 'rating_percent' in recommended_df.columns:
-        recommended_df = recommended_df.sort_values(ascending=False, by='rating_percent')
+
+    
 
     # Remove duplicates based on 'title' column to avoid recommending the same post multiple times
-    recommended_df = recommended_df.drop_duplicates(subset='title')
+        recommended_df = recommended_df.drop_duplicates(subset='title')
 
     # Return top 10 recommendations
     return recommended_df.head(10).to_dict('records')
